@@ -24,7 +24,7 @@ with open(sys.argv[1], 'rb') as csvFile , open(filepath + '/reformated-'+ filena
                     year = searchObject.group()[6:]
                 except:
                     month = searchObject.group()[3:4]
-                    yeart = searchObject.group()[5:]
+                    year = searchObject.group()[5:]
             except:
                 day = searchObject.group()[0:1]
                 try:
