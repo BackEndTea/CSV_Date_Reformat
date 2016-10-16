@@ -13,14 +13,34 @@ with open(sys.argv[1], 'rb') as csvFile , open(filepath + '/reformated-'+ filena
     collumNr = int(sys.argv[2])
     for row in readObject:
         print row
-        searchObject = re.search('([0-9]{2}\/[0-9]{2}\/[0-9]{4})', row[collumNr])
+        searchObject = re.search('([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4})', row[collumNr])
         if searchObject:
+            try:
+                int(searchObject.group()[1])
+                day = searchObject.group()[0:2]
+                try:
+                    int(searchObject.group()[4])
+                    month = searchObject.group()[3:5]
+                    year = searchObject.group()[6:]
+                except:
+                    month = searchObject.group()[3:4]
+                    yeart = searchObject.group()[5:]
+            except:
+                day = searchObject.group()[0:1]
+                try:
+                    int(searchObject.group()[3])
+                    month = searchObject.group()[2:4]
+                    year = searchObject.group()[5:]
+                except:
+                    month = searchObject.group()[2:3]
+                    year = searchObject.group()[4:]
             print searchObject.group()
-            year = searchObject.group()[6:]
             print year
-            month = searchObject.group()[3:5]
+            if int(month) < 10:
+                month = '0'+ month
             print month
-            day = searchObject.group()[0:2]
+            if int(day) < 10:
+                day = '0' + day
             print day
             print row[collumNr]
             oldFormat = searchObject.group()

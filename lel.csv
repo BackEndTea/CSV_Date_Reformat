@@ -3,3 +3,6 @@ henk,18,m,18/12/2015 17:17:52
 girl,12,f,19/11/2013 13:12:07
 mama,50,f,null
 opa,80,m,null
+wrongday,12,m,1/10/2001 21:15:54
+wrongmonth,15,f,10/1/2005 13:24:10
+wrongboth,8,null,1/1/2001 13:23:01
