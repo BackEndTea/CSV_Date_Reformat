@@ -7,7 +7,7 @@ import os.path
 
 filepath = os.path.dirname(sys.argv[1])
 filename = os.path.basename(sys.argv[1])
-with open(sys.argv[1], 'rb') as csvFile , open(filepath + 'reformated-'+ filename, 'wb') as outputFile:
+with open(sys.argv[1], 'rb') as csvFile , open(filepath + '/reformated-'+ filename, 'wb') as outputFile:
     readObject = csv.reader(csvFile, delimiter=',')
     outputWriter = csv.writer(outputFile, delimiter=',')
     collumNr = int(sys.argv[2])
